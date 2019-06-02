@@ -22,7 +22,23 @@ var promise = new Promise((resolve, reject) => {
   }, 3000);
 })
 
-fetch('https://httpbin.org/ips')
+fetch('https://httpbin.org/ip')
+  .then((response) => { 
+    console.log(response)
+    return response.json()
+  })
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error))
+
+
+fetch('https://httpbin.org/post', { 
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({ message: 'Does this work?' })
+  })
   .then((response) => { 
     console.log(response)
     return response.json()
