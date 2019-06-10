@@ -1,5 +1,5 @@
 (function(self) {
-  'use strict';
+  'use strict'
 
   if (self.fetch) {
     return
